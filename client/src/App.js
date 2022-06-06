@@ -3,12 +3,7 @@ import "./App.css";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 function App() {
-  return (
-    <div className="App">
-      <h1>MintWallet</h1>
-      <Button type="primary">Primary button</Button>
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
