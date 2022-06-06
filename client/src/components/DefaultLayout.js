@@ -1,11 +1,15 @@
 import React from "react";
-
+import "../resources/default-layout.css";
 function DefaultLayout(props) {
   return (
     <div className="layout">
-      <div className="header ">
+      <div className="header d-flex justify-content-between align-items-center">
         <div>
           <h1 className="logo">MintWallet</h1>
+        </div>
+
+        <div>
+          <h1 className="username">Username</h1>
         </div>
       </div>
 
