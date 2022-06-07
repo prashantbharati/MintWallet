@@ -4,6 +4,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../resources/authentication.css";
 function Register() {
+  const onFinish = (values) => {
+    console.log(values);
+  };
+
   return (
     <div className="register">
       <div className="row justify-content-center align-items-center w-100 h-100">
@@ -20,7 +24,8 @@ function Register() {
         </div>
 
         <div className="col-md-4">
-          <Form layout="vertical">
+          <Form layout="vertical" onFinish={onFinish}>
+            <h1>REGISTER</h1>
             <Form.Item label="Name" name="name">
               <Input />
             </Form.Item>
