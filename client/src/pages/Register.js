@@ -6,7 +6,7 @@ import "../resources/authentication.css";
 function Register() {
   return (
     <div className="register">
-      <div className="row justify-content-center align-items-center">
+      <div className="row justify-content-center align-items-center w-100 h-100">
         <div className="col-md-5">
           <div className="lottie">
             <lottie-player
