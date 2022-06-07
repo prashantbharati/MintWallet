@@ -4,3 +4,16 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif !important;
 }
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+.primary {
+  background-color: #1b7e14;
+  padding: 5px 20px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
