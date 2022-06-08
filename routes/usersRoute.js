@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const User = require("../models/User");
 router.post("/login", async function (req, res) {
   try {
     const result = await User.findOne({
@@ -20,6 +20,7 @@ router.post("/login", async function (req, res) {
 
 router.post("/register", async function (req, res) {
   try {
+    console.log("yup got it");
     const newuser = new User(req.body);
     await newuser.save();
     res.send("User Registered Successfully");
