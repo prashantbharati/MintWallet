@@ -1,23 +1,27 @@
 import { Form, message } from "antd";
 import Input from "antd/lib/input/Input";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../resources/authentication.css";
 import axios from "axios";
 
 function Login() {
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const onFinish = async (values) => {
     try {
+      setLoading(true);
       const response = await axios.post("/api/users/login", values);
       localStorage.setItem(
-        "sheymoney-udemy-user",
+        "bharati-user",
         JSON.stringify({ ...response.data, password: "" })
       );
-
+      setLoading(false);
       message.success("Login successful");
       navigate("/");
     } catch (error) {
+      setLoading(false);
       message.error("Login failed");
     }
   };
