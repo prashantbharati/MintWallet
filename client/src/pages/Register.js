@@ -7,6 +7,7 @@ import axios from "axios";
 import Spinner from "../components/Spinner";
 function Register() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(true);
   const onFinish = async (values) => {
     try {
       setLoading(true);
@@ -18,6 +19,12 @@ function Register() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("bharati-user")) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="register">

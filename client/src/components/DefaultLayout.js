@@ -1,5 +1,6 @@
 import React from "react";
 import "../resources/default-layout.css";
+const user = JSON.parse(localStorage.getItem("bharati-user"));
 function DefaultLayout(props) {
   return (
     <div className="layout">
@@ -9,7 +10,7 @@ function DefaultLayout(props) {
         </div>
 
         <div>
-          <h1 className="username">Username</h1>
+          <h1 className="username">{user.name}</h1>
         </div>
       </div>
 

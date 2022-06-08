@@ -27,6 +27,12 @@ function Login() {
     }
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("bharati-user")) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div className="register">
       {loading && <Spinner />}
