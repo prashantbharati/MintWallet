@@ -27,6 +27,7 @@ function Home() {
         title="Add Transaction"
         visible={showAddEditTransactionModal}
         onCancel={() => setShowAddEditTransactionModal(false)}
+        footer={false}
       >
         <Form layout="vertical" className="transaction-form">
           <Form.Item label="Amount" name="amount">

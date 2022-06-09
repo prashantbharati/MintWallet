@@ -19,3 +19,11 @@
   border-bottom: 1px solid gray !important;
   box-shadow: none !important;
 }
+
+.ant-select-selector {
+  border: 1px solid gray !important;
+}
+.ant-select-selector:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
