@@ -57,7 +57,11 @@ function Register() {
 
             <div className="d-flex justify-content-between align-items-center">
               <Link to="/login">Already Registered , Click Here To Login</Link>
-              <button className="primary" type="submit">
+              <button
+                className="primary"
+                style={{ backgroundColor: "#371B58" }}
+                type="submit"
+              >
                 REGISTER
               </button>
             </div>

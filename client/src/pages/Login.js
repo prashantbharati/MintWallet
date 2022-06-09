@@ -52,7 +52,11 @@ function Login() {
               <Link to="/register">
                 Not Registered Yet , Click Here To Register
               </Link>
-              <button className="primary" type="submit">
+              <button
+                className="primary"
+                style={{ backgroundColor: "#371B58" }}
+                type="submit"
+              >
                 LOGIN
               </button>
             </div>
