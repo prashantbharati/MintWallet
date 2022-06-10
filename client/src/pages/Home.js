@@ -11,6 +11,7 @@ function Home() {
     useState(false);
   const [loading, setLoading] = useState(false);
   const [transactionsData, setTransactionsData] = useState([]);
+  const [frequency, setFrequency] = useState("7");
   const getTransactions = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("bharati-user"));
@@ -18,7 +19,7 @@ function Home() {
       setLoading(true);
       const response = await axios.post(
         "/api/transactions/get-all-transactions",
-        { userid: user._id }
+        { userid: user._id, frequency }
       );
       console.log(response.data);
       setTransactionsData(response.data);
@@ -31,7 +32,7 @@ function Home() {
 
   useEffect(() => {
     getTransactions();
-  }, []);
+  }, [frequency]);
 
   const columns = [
     {
@@ -64,7 +65,7 @@ function Home() {
         <div>
           <div className="d-flex flex-column">
             <h6>Select Frequency</h6>
-            <Select>
+            <Select value={frequency} onChange={(value) => setFrequency(value)}>
               <Select.Option value="7">Last 1 Week</Select.Option>
               <Select.Option value="30">Last 1 Month</Select.Option>
               <Select.Option value="365">Last 1 Year</Select.Option>
