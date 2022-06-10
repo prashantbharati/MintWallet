@@ -5,6 +5,7 @@ import "../resources/transactions.css";
 import AddEditTransaction from "../components/AddEditTransaction";
 import { message, Table } from "antd";
 import Spinner from "../components/Spinner";
+import moment from "moment";
 function Home() {
   const [showAddEditTransactionModal, setShowAddEditTransactionModal] =
     useState(false);
@@ -36,7 +37,7 @@ function Home() {
     {
       title: "Date",
       dataIndex: "date",
-      // render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>,
+      render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>,
     },
     {
       title: "Amount",
