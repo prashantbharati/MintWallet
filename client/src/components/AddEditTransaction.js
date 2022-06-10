@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, message, Modal, Select } from "antd";
+import Spinner from "./Spinner";
+import axios from "axios";
+
 function AddEditTransaction({
   setShowAddEditTransactionModal,
   showAddEditTransactionModal,
 }) {
-  const onFinish = (values) => {
-    console.log(values);
+  const [loading, setLoading] = useState(false);
+  const onFinish = async (values) => {
+    try {
+      setLoading(true);
+      await axios.post("/api/transactions/add-transaction", values);
+      message.success("Transaction added successfully");
+      setLoading(false);
+    } catch (error) {
+      message.error("Something went wrong");
+      setLoading(false);
+    }
   };
-
   return (
     <Modal
       title="Add Transaction"
@@ -15,6 +26,7 @@ function AddEditTransaction({
       onCancel={() => setShowAddEditTransactionModal(false)}
       footer={false}
     >
+      {loading && <Spinner />}
       <Form layout="vertical" className="transaction-form" onFinish={onFinish}>
         <Form.Item label="Amount" name="amount">
           <Input type="text" />
