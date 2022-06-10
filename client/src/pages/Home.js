@@ -3,7 +3,7 @@ import DefaultLayout from "../components/DefaultLayout";
 import axios from "axios";
 import "../resources/transactions.css";
 import AddEditTransaction from "../components/AddEditTransaction";
-import { message } from "antd";
+import { message, Table } from "antd";
 import Spinner from "../components/Spinner";
 function Home() {
   const [showAddEditTransactionModal, setShowAddEditTransactionModal] =
@@ -32,6 +32,30 @@ function Home() {
     getTransactions();
   }, []);
 
+  const columns = [
+    {
+      title: "Date",
+      dataIndex: "date",
+      // render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>,
+    },
+    {
+      title: "Amount",
+      dataIndex: "amount",
+    },
+    {
+      title: "Category",
+      dataIndex: "category",
+    },
+    {
+      title: "Type",
+      dataIndex: "type",
+    },
+    {
+      title: "Reference",
+      dataIndex: "reference",
+    },
+  ];
+
   return (
     <DefaultLayout>
       {loading && <Spinner />}
@@ -48,7 +72,11 @@ function Home() {
         </div>
       </div>
 
-      <div className="table-analtics"></div>
+      <div className="table-analtics">
+        <div className="table">
+          <Table columns={columns} dataSource={transactionsData} />
+        </div>
+      </div>
 
       {showAddEditTransactionModal && (
         <AddEditTransaction
