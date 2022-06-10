@@ -3,24 +3,28 @@ import DefaultLayout from "../components/DefaultLayout";
 import axios from "axios";
 import "../resources/transactions.css";
 import AddEditTransaction from "../components/AddEditTransaction";
+import { message } from "antd";
+import Spinner from "../components/Spinner";
 function Home() {
   const [showAddEditTransactionModal, setShowAddEditTransactionModal] =
     useState(false);
   const [loading, setLoading] = useState(false);
+  const [transactionsData, setTransactionsData] = useState([]);
   const getTransactions = async () => {
     try {
-      const user = JSON.parse(localStorage.getItem("sheymoney-udemy-user"));
+      const user = JSON.parse(localStorage.getItem("bharati-user"));
 
       setLoading(true);
       const response = await axios.post(
         "/api/transactions/get-all-transactions",
         { userid: user._id }
       );
-
+      console.log(response.data);
+      setTransactionsData(response.data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      message.error("Something wennt wrong");
+      message.error("Something went wrong");
     }
   };
 
