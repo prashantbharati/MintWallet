@@ -6,6 +6,7 @@ import axios from "axios";
 function AddEditTransaction({
   setShowAddEditTransactionModal,
   showAddEditTransactionModal,
+  getTransactions,
 }) {
   const [loading, setLoading] = useState(false);
   const onFinish = async (values) => {
@@ -16,6 +17,7 @@ function AddEditTransaction({
         ...values,
         userid: user._id,
       });
+      getTransactions();
       message.success("Transaction added successfully");
       setShowAddEditTransactionModal(false);
       setLoading(false);

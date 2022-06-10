@@ -82,6 +82,7 @@ function Home() {
         <AddEditTransaction
           showAddEditTransactionModal={showAddEditTransactionModal}
           setShowAddEditTransactionModal={setShowAddEditTransactionModal}
+          getTransactions={getTransactions}
         />
       )}
     </DefaultLayout>
