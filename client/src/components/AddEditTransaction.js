@@ -10,9 +10,14 @@ function AddEditTransaction({
   const [loading, setLoading] = useState(false);
   const onFinish = async (values) => {
     try {
+      const user = JSON.parse(localStorage.getItem("bharati-user"));
       setLoading(true);
-      await axios.post("/api/transactions/add-transaction", values);
+      await axios.post("/api/transactions/add-transaction", {
+        ...values,
+        userid: user._id,
+      });
       message.success("Transaction added successfully");
+      setShowAddEditTransactionModal(false);
       setLoading(false);
     } catch (error) {
       message.error("Something went wrong");
