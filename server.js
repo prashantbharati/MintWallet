@@ -5,7 +5,9 @@ const app = express();
 app.use(express.json());
 
 const userRoute = require("./routes/usersRoute");
+const transactionsRoute = require("./routes/transactionsRoute");
 app.use("/api/users/", userRoute);
+app.use("/api/transactions/", transactionsRoute);
 app.get("/", (req, res) => res.send("Hello world"));
 dotenv.config();
 
