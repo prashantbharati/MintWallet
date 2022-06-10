@@ -3,7 +3,7 @@ import DefaultLayout from "../components/DefaultLayout";
 import axios from "axios";
 import "../resources/transactions.css";
 import AddEditTransaction from "../components/AddEditTransaction";
-import { message, Table } from "antd";
+import { message, Select, Table } from "antd";
 import Spinner from "../components/Spinner";
 import moment from "moment";
 function Home() {
@@ -61,7 +61,17 @@ function Home() {
     <DefaultLayout>
       {loading && <Spinner />}
       <div className="filter d-flex justify-content-between align-items-center">
-        <div className="d-flex"></div>
+        <div>
+          <div className="d-flex flex-column">
+            <h6>Select Frequency</h6>
+            <Select>
+              <Select.Option value="7">Last 1 Week</Select.Option>
+              <Select.Option value="30">Last 1 Month</Select.Option>
+              <Select.Option value="365">Last 1 Year</Select.Option>
+              <Select.Option value="custom">Custom</Select.Option>
+            </Select>
+          </div>
+        </div>
 
         <div className="d-flex">
           <button
