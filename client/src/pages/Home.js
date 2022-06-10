@@ -3,15 +3,17 @@ import DefaultLayout from "../components/DefaultLayout";
 import axios from "axios";
 import "../resources/transactions.css";
 import AddEditTransaction from "../components/AddEditTransaction";
-import { message, Select, Table } from "antd";
+import { DatePicker, message, Select, Table } from "antd";
 import Spinner from "../components/Spinner";
 import moment from "moment";
+const { RangePicker } = DatePicker;
 function Home() {
   const [showAddEditTransactionModal, setShowAddEditTransactionModal] =
     useState(false);
   const [loading, setLoading] = useState(false);
   const [transactionsData, setTransactionsData] = useState([]);
   const [frequency, setFrequency] = useState("7");
+  const [selectedRange, setSelectedRange] = useState([]);
   const getTransactions = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("bharati-user"));
@@ -71,6 +73,15 @@ function Home() {
               <Select.Option value="365">Last 1 Year</Select.Option>
               <Select.Option value="custom">Custom</Select.Option>
             </Select>
+
+            {frequency === "custom" && (
+              <div className="mt-2">
+                <RangePicker
+                  value={selectedRange}
+                  onChange={(values) => setSelectedRange(values)}
+                />
+              </div>
+            )}
           </div>
         </div>
 
