@@ -14,13 +14,25 @@ router.post("/add-transaction", async function (req, res) {
 });
 
 router.post("/get-all-transactions", async (req, res) => {
+  const { frequency, selectedRange, type } = req.body;
   try {
     const transactions = await Transaction.find({
-      date: {
-        $gt: moment().subtract(Number(req.body.frequency), "d").toDate(),
-      },
+      ...(frequency !== "custom"
+        ? {
+            date: {
+              $gt: moment().subtract(Number(req.body.frequency), "d").toDate(),
+            },
+          }
+        : {
+            date: {
+              $gte: selectedRange[0],
+              $lte: selectedRange[1],
+            },
+          }),
       userid: req.body.userid,
+      // ...(type!=='all' && {type})
     });
+
     res.send(transactions);
   } catch (error) {
     console.log(error);

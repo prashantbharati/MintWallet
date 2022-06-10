@@ -21,7 +21,11 @@ function Home() {
       setLoading(true);
       const response = await axios.post(
         "/api/transactions/get-all-transactions",
-        { userid: user._id, frequency }
+        {
+          userid: user._id,
+          frequency,
+          ...(frequency === "custom" && { selectedRange }),
+        }
       );
       console.log(response.data);
       setTransactionsData(response.data);
@@ -34,7 +38,7 @@ function Home() {
 
   useEffect(() => {
     getTransactions();
-  }, [frequency]);
+  }, [frequency, selectedRange]);
 
   const columns = [
     {
