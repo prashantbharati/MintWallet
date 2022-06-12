@@ -13,6 +13,7 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [transactionsData, setTransactionsData] = useState([]);
   const [frequency, setFrequency] = useState("7");
+  const [type, setType] = useState("all");
   const [selectedRange, setSelectedRange] = useState([]);
   const getTransactions = async () => {
     try {
@@ -68,7 +69,7 @@ function Home() {
     <DefaultLayout>
       {loading && <Spinner />}
       <div className="filter d-flex justify-content-between align-items-center">
-        <div>
+        <div className="d-flex">
           <div className="d-flex flex-column">
             <h6>Select Frequency</h6>
             <Select value={frequency} onChange={(value) => setFrequency(value)}>
@@ -86,6 +87,15 @@ function Home() {
                 />
               </div>
             )}
+          </div>
+
+          <div className="d-flex flex-column mx-5">
+            <h6>Select Type</h6>
+            <Select value={type} onChange={(value) => setType(value)}>
+              <Select.Option value="all">All</Select.Option>
+              <Select.Option value="income">Income</Select.Option>
+              <Select.Option value="expence">Expence</Select.Option>
+            </Select>
           </div>
         </div>
 
