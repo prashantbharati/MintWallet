@@ -26,6 +26,7 @@ function Home() {
           userid: user._id,
           frequency,
           ...(frequency === "custom" && { selectedRange }),
+          type,
         }
       );
       console.log(response.data);
@@ -39,7 +40,7 @@ function Home() {
 
   useEffect(() => {
     getTransactions();
-  }, [frequency, selectedRange]);
+  }, [frequency, selectedRange, type]);
 
   const columns = [
     {

@@ -30,7 +30,7 @@ router.post("/get-all-transactions", async (req, res) => {
             },
           }),
       userid: req.body.userid,
-      // ...(type!=='all' && {type})
+      ...(type !== "all" && { type }),
     });
 
     res.send(transactions);
