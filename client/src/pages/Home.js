@@ -137,9 +137,13 @@ function Home() {
       </div>
 
       <div className="table-analtics">
-        <div className="table">
-          <Table columns={columns} dataSource={transactionsData} />
-        </div>
+        {viewType === "table" ? (
+          <div className="table">
+            <Table columns={columns} dataSource={transactionsData} />
+          </div>
+        ) : (
+          <Analatics transactions={transactionsData} />
+        )}
       </div>
 
       {showAddEditTransactionModal && (
