@@ -116,6 +116,30 @@ function Analatics({ transactions }) {
             })}
           </div>
         </div>
+
+        <div className="col-md-6">
+          <div className="category-analysis">
+            <h4>Expence - Category Wise</h4>
+            {categories.map((category) => {
+              const amount = transactions
+                .filter((t) => t.type == "expence" && t.category === category)
+                .reduce((acc, t) => acc + t.amount, 0);
+              return (
+                amount > 0 && (
+                  <div className="category-card">
+                    <h5>{category}</h5>
+                    <Progress
+                      strokeColor="#0B5AD9"
+                      percent={((amount / totalExpenceTurnover) * 100).toFixed(
+                        0
+                      )}
+                    />
+                  </div>
+                )
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
