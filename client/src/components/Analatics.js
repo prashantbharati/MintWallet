@@ -14,6 +14,22 @@ function Analatics({ transactions }) {
   const totalExpenceTransactionsPercentage =
     (totalExpenceTransactions.length / totalTransactions) * 100;
 
+  const totalTurnover = transactions.reduce(
+    (acc, transaction) => acc + transaction.amount,
+    0
+  );
+  const totalIncomeTurnover = transactions
+    .filter((transaction) => transaction.type === "income")
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+  const totalExpenceTurnover = transactions
+    .filter((transaction) => transaction.type === "expence")
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+  console.log(totalExpenceTurnover);
+  const totalIncomeTurnoverPercentage =
+    (totalIncomeTurnover / totalTurnover) * 100;
+  const totalExpenceTurnoverPercentage =
+    (totalExpenceTurnover / totalTurnover) * 100;
+
   return (
     <div className="analytics">
       <div className="row">
