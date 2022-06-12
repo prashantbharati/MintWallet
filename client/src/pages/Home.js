@@ -8,6 +8,7 @@ import {
   EditOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
+import Analatics from "../components/Analatics";
 import AddEditTransaction from "../components/AddEditTransaction";
 import { DatePicker, message, Select, Table } from "antd";
 import Spinner from "../components/Spinner";
