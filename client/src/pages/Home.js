@@ -72,6 +72,18 @@ function Home() {
       title: "Reference",
       dataIndex: "reference",
     },
+    {
+      title: "Actions",
+      dataIndex: "actions",
+      render: (text, record) => {
+        return (
+          <div>
+            <EditOutlined />
+            <DeleteOutlined className="mx-3" />
+          </div>
+        );
+      },
+    },
   ];
 
   return (
