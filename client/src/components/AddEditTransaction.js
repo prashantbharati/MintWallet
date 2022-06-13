@@ -15,12 +15,24 @@ function AddEditTransaction({
     try {
       const user = JSON.parse(localStorage.getItem("bharati-user"));
       setLoading(true);
-      await axios.post("/api/transactions/add-transaction", {
-        ...values,
-        userid: user._id,
-      });
-      getTransactions();
-      message.success("Transaction added successfully");
+      if (selectedItemForEdit) {
+        await axios.post("/api/transactions/edit-transaction", {
+          payload: {
+            ...values,
+            userid: user._id,
+          },
+          transactionId: selectedItemForEdit._id,
+        });
+        getTransactions();
+        message.success("Transaction Updated successfully");
+      } else {
+        await axios.post("/api/transactions/add-transaction", {
+          ...values,
+          userid: user._id,
+        });
+        getTransactions();
+        message.success("Transaction added successfully");
+      }
       setShowAddEditTransactionModal(false);
       setSelectedItemForEdit(null);
       setLoading(false);
