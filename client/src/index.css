@@ -17,3 +17,10 @@ html {
   border: none;
   border-radius: 3px;
 }
+
+.secondary {
+  background-color: #ffffff;
+  padding: 5px 20px;
+  color: black !important;
+  border: none;
+}
