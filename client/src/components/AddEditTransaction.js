@@ -6,6 +6,8 @@ import axios from "axios";
 function AddEditTransaction({
   setShowAddEditTransactionModal,
   showAddEditTransactionModal,
+  selectedItemForEdit,
+  setSelectedItemForEdit,
   getTransactions,
 }) {
   const [loading, setLoading] = useState(false);
@@ -20,6 +22,7 @@ function AddEditTransaction({
       getTransactions();
       message.success("Transaction added successfully");
       setShowAddEditTransactionModal(false);
+      setSelectedItemForEdit(null);
       setLoading(false);
     } catch (error) {
       message.error("Something went wrong");
@@ -28,13 +31,18 @@ function AddEditTransaction({
   };
   return (
     <Modal
-      title="Add Transaction"
+      title={selectedItemForEdit ? "Edit Transaction" : "Add Transaction"}
       visible={showAddEditTransactionModal}
       onCancel={() => setShowAddEditTransactionModal(false)}
       footer={false}
     >
       {loading && <Spinner />}
-      <Form layout="vertical" className="transaction-form" onFinish={onFinish}>
+      <Form
+        layout="vertical"
+        className="transaction-form"
+        onFinish={onFinish}
+        initialValues={selectedItemForEdit}
+      >
         <Form.Item label="Amount" name="amount">
           <Input type="text" />
         </Form.Item>

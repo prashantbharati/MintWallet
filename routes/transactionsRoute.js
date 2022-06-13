@@ -13,6 +13,18 @@ router.post("/add-transaction", async function (req, res) {
   }
 });
 
+router.post("/edit-transaction", async function (req, res) {
+  try {
+    await Transaction.findOneAndUpdate(
+      { _id: req.body.transactionId },
+      req.body.payload
+    );
+    res.send("Transaction Updated Successfully");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.post("/get-all-transactions", async (req, res) => {
   const { frequency, selectedRange, type } = req.body;
   try {

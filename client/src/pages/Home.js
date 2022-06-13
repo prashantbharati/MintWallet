@@ -171,6 +171,7 @@ function Home() {
           setShowAddEditTransactionModal={setShowAddEditTransactionModal}
           selectedItemForEdit={selectedItemForEdit}
           getTransactions={getTransactions}
+          setSelectedItemForEdit={setSelectedItemForEdit}
         />
       )}
     </DefaultLayout>
