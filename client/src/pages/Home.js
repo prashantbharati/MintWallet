@@ -100,7 +100,10 @@ function Home() {
                 setShowAddEditTransactionModal(true);
               }}
             />
-            <DeleteOutlined className="mx-3" />
+            <DeleteOutlined
+              className="mx-3"
+              onClick={() => deleteTransaction(record)}
+            />
           </div>
         );
       },
