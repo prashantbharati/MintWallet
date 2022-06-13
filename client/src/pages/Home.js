@@ -23,6 +23,7 @@ function Home() {
   const [type, setType] = useState("all");
   const [selectedRange, setSelectedRange] = useState([]);
   const [viewType, setViewType] = useState("table");
+  const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const getTransactions = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("bharati-user"));
@@ -78,7 +79,12 @@ function Home() {
       render: (text, record) => {
         return (
           <div>
-            <EditOutlined />
+            <EditOutlined
+              onClick={() => {
+                setSelectedItemForEdit(record);
+                setShowAddEditTransactionModal(true);
+              }}
+            />
             <DeleteOutlined className="mx-3" />
           </div>
         );
@@ -163,6 +169,7 @@ function Home() {
         <AddEditTransaction
           showAddEditTransactionModal={showAddEditTransactionModal}
           setShowAddEditTransactionModal={setShowAddEditTransactionModal}
+          selectedItemForEdit={selectedItemForEdit}
           getTransactions={getTransactions}
         />
       )}
