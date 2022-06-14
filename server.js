@@ -24,13 +24,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose
-  .connect(
-    "mongodb+srv://prashant123:prashant123@cluster0.txkhl.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect("process.env.CONNECTION_URL", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() =>
     app.listen(process.env.PORT, () =>
       console.log(`Server running on port:${process.env.PORT}`)
