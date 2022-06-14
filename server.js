@@ -1,4 +1,5 @@
 const express = require("express");
+const dbConnect = require("./dbConnect");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -23,14 +24,17 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-mongoose
-  .connect("process.env.CONNECTION_URL", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() =>
-    app.listen(process.env.PORT, () =>
-      console.log(`Server running on port:${process.env.PORT}`)
-    )
-  )
-  .catch((error) => console.log(error.message));
+// mongoose
+//   .connect("process.env.CONNECTION_URL", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() =>
+//     app.listen(process.env.PORT, () =>
+//       console.log(`Server running on port:${process.env.PORT}`)
+//     )
+//   )
+//   .catch((error) => console.log(error.message));
+app.listen(process.env.PORT, () =>
+  console.log(`Node JS Server started at port ${process.env.PORT}!`)
+);
