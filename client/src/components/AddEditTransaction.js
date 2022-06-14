@@ -61,23 +61,23 @@ function AddEditTransaction({
 
         <Form.Item label="Type" name="type">
           <Select>
-            <Select.Option value="income">Income</Select.Option>
-            <Select.Option value="expence">Expence</Select.Option>
+            <Select.Option value="Income">Income</Select.Option>
+            <Select.Option value="Expence">Expence</Select.Option>
           </Select>
         </Form.Item>
 
         <Form.Item label="Category" name="category">
           <Select>
             {" "}
-            <Select.Option value="salary">Salary</Select.Option>
-            <Select.Option value="freelance">Freelance</Select.Option>
-            <Select.Option value="food">Food</Select.Option>
-            <Select.Option value="entertainment">Entertainment</Select.Option>
-            <Select.Option value="investment">Investment</Select.Option>
-            <Select.Option value="travel">Travel</Select.Option>
-            <Select.Option value="education">Education</Select.Option>
-            <Select.Option value="medical">Medical</Select.Option>
-            <Select.Option value="tax">Tax</Select.Option>
+            <Select.Option value="Salary">Salary</Select.Option>
+            <Select.Option value="Freelance">Freelance</Select.Option>
+            <Select.Option value="Food">Food</Select.Option>
+            <Select.Option value="Entertainment">Entertainment</Select.Option>
+            <Select.Option value="Investment">Investment</Select.Option>
+            <Select.Option value="Travel">Travel</Select.Option>
+            <Select.Option value="Education">Education</Select.Option>
+            <Select.Option value="Medical">Medical</Select.Option>
+            <Select.Option value="Tax">Tax</Select.Option>
           </Select>
         </Form.Item>
 
