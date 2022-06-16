@@ -4,10 +4,10 @@ import "../resources/analatics.css";
 function Analatics({ transactions }) {
   const totalTransactions = transactions.length;
   const totalIncomeTransactions = transactions.filter(
-    (transaction) => transaction.type === "income"
+    (transaction) => transaction.type === "Income"
   );
   const totalExpenceTransactions = transactions.filter(
-    (transaction) => transaction.type === "expence"
+    (transaction) => transaction.type === "Expence"
   );
   const totalIncomeTransactionsPercentage =
     (totalIncomeTransactions.length / totalTransactions) * 100;
@@ -19,10 +19,10 @@ function Analatics({ transactions }) {
     0
   );
   const totalIncomeTurnover = transactions
-    .filter((transaction) => transaction.type === "income")
+    .filter((transaction) => transaction.type === "Income")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
   const totalExpenceTurnover = transactions
-    .filter((transaction) => transaction.type === "expence")
+    .filter((transaction) => transaction.type === "Expence")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
   console.log(totalExpenceTurnover);
   const totalIncomeTurnoverPercentage =
@@ -98,7 +98,7 @@ function Analatics({ transactions }) {
             <h4>Income - Category Wise</h4>
             {categories.map((category) => {
               const amount = transactions
-                .filter((t) => t.type === "income" && t.category === category)
+                .filter((t) => t.type === "Income" && t.category === category)
                 .reduce((acc, t) => acc + t.amount, 0);
               return (
                 amount > 0 && (
@@ -122,7 +122,7 @@ function Analatics({ transactions }) {
             <h4>Expence - Category Wise</h4>
             {categories.map((category) => {
               const amount = transactions
-                .filter((t) => t.type === "expence" && t.category === category)
+                .filter((t) => t.type === "Expence" && t.category === category)
                 .reduce((acc, t) => acc + t.amount, 0);
               return (
                 amount > 0 && (
