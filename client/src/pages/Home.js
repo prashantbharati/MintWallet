@@ -138,8 +138,8 @@ function Home() {
             <h6>Select Type</h6>
             <Select value={type} onChange={(value) => setType(value)}>
               <Select.Option value="all">All</Select.Option>
-              <Select.Option value="income">Income</Select.Option>
-              <Select.Option value="expence">Expence</Select.Option>
+              <Select.Option value="Income">Income</Select.Option>
+              <Select.Option value="Expence">Expence</Select.Option>
             </Select>
           </div>
         </div>
