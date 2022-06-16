@@ -31,15 +31,15 @@ function Analatics({ transactions }) {
     (totalExpenceTurnover / totalTurnover) * 100;
 
   const categories = [
-    "salary",
-    "entertainment",
-    "freelance",
-    "food",
-    "travel",
-    "investment",
-    "education",
-    "medical",
-    "tax",
+    "Salary",
+    "Entertainment",
+    "Freelance",
+    "Food",
+    "Travel",
+    "Investment",
+    "Education",
+    "Medical",
+    "Tax",
   ];
 
   return (
