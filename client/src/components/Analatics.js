@@ -2,31 +2,50 @@ import { Progress } from "antd";
 import React from "react";
 import "../resources/analatics.css";
 function Analatics({ transactions }) {
+  //total transactions length
   const totalTransactions = transactions.length;
+
+  //total income transactions seperated
   const totalIncomeTransactions = transactions.filter(
     (transaction) => transaction.type === "Income"
   );
+
+  //total expense transactions seperated
   const totalExpenceTransactions = transactions.filter(
     (transaction) => transaction.type === "Expence"
   );
+
+  //total income transactions percentage seperated
   const totalIncomeTransactionsPercentage =
     (totalIncomeTransactions.length / totalTransactions) * 100;
+
+  //total expense transactions percentage seperated
   const totalExpenceTransactionsPercentage =
     (totalExpenceTransactions.length / totalTransactions) * 100;
 
+  // total turnover calculated
   const totalTurnover = transactions.reduce(
     (acc, transaction) => acc + transaction.amount,
     0
   );
+
+  // total income turnover calculated
   const totalIncomeTurnover = transactions
     .filter((transaction) => transaction.type === "Income")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+  // total expense turnover calculated
   const totalExpenceTurnover = transactions
     .filter((transaction) => transaction.type === "Expence")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
+
   console.log(totalExpenceTurnover);
+
+  // total income turnover percentage calculated
   const totalIncomeTurnoverPercentage =
     (totalIncomeTurnover / totalTurnover) * 100;
+
+  // total expense turnover percentage calculated
   const totalExpenceTurnoverPercentage =
     (totalExpenceTurnover / totalTurnover) * 100;
 

@@ -24,6 +24,7 @@ function Home() {
   const [selectedRange, setSelectedRange] = useState([]);
   const [viewType, setViewType] = useState("table");
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
+
   const getTransactions = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("bharati-user"));
