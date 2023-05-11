@@ -13,7 +13,10 @@ function Login() {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/users/login", values);
+      const response = await axios.post(
+        "http://localhost:5000/api/users/login",
+        values
+      );
       localStorage.setItem(
         "bharati-user",
         JSON.stringify({ ...response.data, password: "" })

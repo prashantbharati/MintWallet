@@ -24,6 +24,9 @@ function Analatics({ transactions }) {
     (totalExpenceTransactions.length / totalTransactions) * 100;
 
   // total turnover calculated
+
+  // accumulator function, sum=prevsum+currsum
+
   const totalTurnover = transactions.reduce(
     (acc, transaction) => acc + transaction.amount,
     0

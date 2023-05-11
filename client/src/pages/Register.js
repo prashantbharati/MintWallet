@@ -11,7 +11,7 @@ function Register() {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      await axios.post("/api/users/register", values);
+      await axios.post("http://localhost:5000/api/users/register", values);
       message.success("Registration Successfull");
       setLoading(false);
     } catch (error) {
